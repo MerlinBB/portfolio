@@ -4,6 +4,7 @@
     var portfolio = {
 
         init: function () {
+            this.drawLogo();
             this.bindUIActions();
             $(".slides").slick({
                 slide: "li",
@@ -19,7 +20,7 @@
         },
 
         windowLoaded: function () {
-            this.drawLogo();
+            //
         },
 
         windowScrolled: function () {
