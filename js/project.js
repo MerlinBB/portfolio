@@ -34,18 +34,14 @@
 
         drawLogo: function () {
             var logoPath = "l 0,-100, l 50,50, l 50,-50, l 0,100";
-            var logoFlatPath = "l 50,0, l 50,0, l 50,0, l 50,0";
+            var logoFlatPath = "M50,53 l 50,0, l 50,0, l 50,0, l 50,0";
 
-            var logo1Path =     "M90,103 " + logoPath;
-            var logo1FlatPath = "M50,53 " + logoFlatPath;
-            var logo2Path =     "M100,103 " + logoPath;
-            var logo2FlatPath = "M50,53 " + logoFlatPath;
-            var logo3Path =     "M110,103 " + logoPath;
-            var logo3FlatPath = "M50,53 " + logoFlatPath;
+            var m1Path = "M95,103 " + logoPath;
+            var m2Path = "M105,103 " + logoPath;
 
             var s = new Snap("#logo");
 
-            var logoattrs = {
+            var logoSettings = {
                 fill: "none",
                 stroke: "#666",
                 strokeWidth: 3,
@@ -53,23 +49,18 @@
                 strokeLinecap: "round"
             };
 
-            var logo1 = s.path(logo1Path);
-            logo1.attr(logoattrs);
+            var m1 = s.path(m1Path);
+            m1.attr(logoSettings);
 
-            var logo2 = s.path(logo2Path);
-            logo2.attr(logoattrs);
-
-            var logo3 = s.path(logo3Path);
-            logo3.attr(logoattrs);
+            var m2 = s.path(m2Path);
+            m2.attr(logoSettings);
 
             $(".logo-wrap").hover(function () {
-                logo1.animate({ d: logo1FlatPath, strokeWidth: 1 }, 200, mina.easeout);
-                logo2.animate({ d: logo2FlatPath, strokeWidth: 1 }, 200, mina.easeout);
-                logo3.animate({ d: logo3FlatPath, strokeWidth: 1 }, 200, mina.easeout);
+                m1.animate({ d: logoFlatPath, strokeWidth: 1 }, 200, mina.easeout);
+                m2.animate({ d: logoFlatPath, strokeWidth: 1 }, 200, mina.easeout);
             }, function () {
-                logo1.animate({ d: logo1Path, strokeWidth: 3 }, 200, mina.easeout);
-                logo2.animate({ d: logo2Path, strokeWidth: 3 }, 200, mina.easeout);
-                logo3.animate({ d: logo3Path, strokeWidth: 3 }, 200, mina.easeout);
+                m1.animate({ d: m1Path, strokeWidth: 3 }, 200, mina.easeout);
+                m2.animate({ d: m2Path, strokeWidth: 3 }, 200, mina.easeout);
             });
         }
 
