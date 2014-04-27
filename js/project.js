@@ -1,14 +1,18 @@
 (function ($) {
     "use strict";
 
-    var starter = {
+    var portfolio = {
 
         init: function () {
             this.bindUIActions();
+            $(".slides").slick({
+                slide: "li",
+                dots: true
+            });
         },
 
         bindUIActions: function () {
-            $(".btn").on("click", function (e) { starter.sayHello(e); });
+            $(".btn").on("click", function (e) { portfolio.sayHello(e); });
         },
 
         windowLoaded: function () {
@@ -40,7 +44,7 @@
             });
             logo.animate({d: logoPath}, 600, mina.easeout);
 
-            $(".container").hover(function () {
+            $(".page-header").hover(function () {
                 logo.animate({d: logoFlatPath}, 200, mina.easeout);
             }, function () {
                 logo.animate({d: logoPath}, 200, mina.easeout);
@@ -50,12 +54,12 @@
     };
 
     // DOM Ready
-    $(function () { starter.init(); });
+    $(function () { portfolio.init(); });
     // Images Loaded
-    $(window).load(function () { starter.windowLoaded(); });
+    $(window).load(function () { portfolio.windowLoaded(); });
     // Window Resized (smart debounced event)
-    $(window).bind("debouncedresize", function () { starter.windowResized(); });
+    $(window).bind("debouncedresize", function () { portfolio.windowResized(); });
     // Window Scrolled
-    $(window).on("scroll", function () { starter.windowScrolled(); });
+    $(window).on("scroll", function () { portfolio.windowScrolled(); });
 
 } (jQuery));
