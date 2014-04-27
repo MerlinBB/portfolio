@@ -14,17 +14,94 @@
 
     <meta name="description" content="">
 
-    <title>Starter</title>
+    <title>Merlin Mason — Frontend Developer</title>
 
     <link rel="stylesheet" type="text/css" media="all" href="style.css"/>
-    <link rel="icon" type="image/png" href="/img/favicon.png">
+
+    <!-- Old 16x16 favicon.ico still exists for devices that don't support the meta tag -->
+    <link rel="shortcut icon" type="image/png" href="/img/favicons/logo-icon-32x32.png">
+
+    <!-- New iOS7 Sizes -->
+    <link rel="apple-touch-icon" href="/img/favicons/logo-icon-76x76.png" sizes="76x76">
+    <link rel="apple-touch-icon" href="/img/favicons/logo-icon-120x120.png" sizes="120x120">
+    <link rel="apple-touch-icon" href="/img/favicons/logo-icon-152x152.png" sizes="152x152">
+
+    <!-- Metro Tiles -->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/img/favicons/logo-icon-152x152.png">
+
+    <script type="text/javascript" src="//use.typekit.net/czt2gaf.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
 </head>
 <body>
 
 <div class="container">
-    <svg id="logo" class="logo"></svg>
-    <h1>Merlin Mason</h1>
+    <header class="page-header">
+        <svg id="logo" class="logo"></svg>
+        <h1 class="main-heading">Merlin Mason</h1>
+    </header>
+
+    <section id="about" class="section about">
+        <h1 class="main-heading">About</h1>
+        <p>I'm a frontend developer with a strong interest in UX and a background as an award winning graphic designer.</p>
+
+        <p>I work closely with designers, developing wireframes and turning ideas into interactive, responsive, data-driven websites and applications.</p>
+
+        <p>I love web standards and open source technology, and spend most of my time working with HTML5, CSS3 / LESS / SASS, jQuery, Backbone.js, Underscore, Grunt, WordPress and GitHub.</p>
+
+        <p>I'm currently working at UK2 Group as a UX designer and UI developer on the Chimera project.</p>
+    </section>
+
+    <section id="case-studies" class="section case-studies">
+
+        <article class="case-study">
+            <h1 class="main-heading">Case Studies</h1>
+            <ul class="slides">
+                <li>
+                    <img src="/img/chimera-1.png" alt="Screen shot of the Chimera hosting control panel">
+                </li>
+                <li>
+                    <img src="/img/chimera-2.png" alt="Screen shot of the Chimera hosting control panel">
+                </li>
+                <li>
+                    <img src="/img/chimera-3.png" alt="Screen shot of the Chimera hosting control panel">
+                </li>
+            </ul>
+            <h2 class="sub-heading">Chimera Project</h2>
+            <h3 class="meta-heading">UK2 Group (London) | April 2013 — Current</h3>
+            <p>Working on a large Backbone.js powered customer control panel, I have full responsibility of user experience, visual design, interactions and CSS framework. I help define user requirements, write feature specs, create wireframes and develop full interactive UIs.</p>
+        </article>
+
+        <article class="case-study">
+            <ul class="slides">
+                <li>
+                    <img src="/img/filmhouse-1.png" alt="Screen shot of the filmhouse.tv website">
+                </li>
+                <li>
+                    <img src="/img/filmhouse-2.png" alt="Screen shot of the filmhouse.tv website">
+                </li>
+                <li>
+                    <img src="/img/filmhouse-3.png" alt="Screen shot of the filmhouse.tv website">
+                </li>
+            </ul>
+            <h2 class="sub-heading">filmhouse.tv</h2>
+            <h3 class="meta-heading">The Film House (Qatar) | November/December 2013</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, rerum pariatur nesciunt voluptatem optio repellat et necessitatibus eius. Porro, expedita, tenetur delectus labore ipsa unde minima ducimus rem est qui nihil consequatur voluptatem quibusdam repellat pariatur eaque saepe magnam recusandae excepturi vero. In, labore corrupti odio mollitia sint dolore beatae.</p>
+        </article>
+
+        <article class="case-study">
+            <ul class="slides">
+                <li>
+                    <img src="/img/bb-1.jpg" alt="Brilliant Basics logo">
+                </li>
+            </ul>
+            <h2 class="sub-heading">Contract UX/UI Developer</h2>
+            <h3 class="meta-heading">Brilliant Basics (London) | November/December 2013</h3>
+            <p>Working on a variety of internal and customer facing applications for an international bank, I acted as an intermediary between the design and tech teams, creating prototypes, building CSS frameworks and defining interactions. I was lead consultant on a bespoke mobile framework and spent a month in Hong Kong ensuring the smooth delivery of the project to the banks internal IT team.</p>
+        </article>
+
+    </section>
 </div>
 
 
@@ -38,6 +115,7 @@ if not then pull them in unminified individually for easier debugging -->
 <script src="js/bower/modernizr/modernizr.js"></script>
 <script src="js/bower/jquery-smartresize/jquery.debouncedresize.js"></script>
 <script src="js/bower/Snap.svg/dist/snap.svg.js"></script>
+<script src="js/bower/slick-carousel/slick/slick.js"></script>
 <script src="js/project.js"></script>
 
 </body>

@@ -14,6 +14,7 @@
 @import "vars.less";
 @import "helpers.less";
 @import "grid.less";
+@import (less) "/js/bower/slick-carousel/slick/slick.css";
 
 ::-moz-selection {
     background:@color-highlight;
@@ -33,15 +34,33 @@
 
 
 body {
-    font-family:@font-family-base;
+    font-family:@font-family-body;
     font-size:@font-size-base;
     line-height:@line-height-base;
     color:@color-text;
-    text-align:center;
 }
 
 p { margin-bottom:@space; }
 
+.heading {
+    font-family:@font-family-heading;
+    line-height:@line-height-base;
+    font-weight:400;
+    text-align:center;
+    margin-bottom:@space;
+}
+.main-heading {
+    &:extend(.heading);
+    font-size:48px;
+}
+.sub-heading {
+    &:extend(.heading);
+    font-size:36px;
+}
+.meta-heading {
+    &:extend(.heading);
+    font-size:24px;
+}
 
 //----------------------------------------------------------------------------//
 //  Links
@@ -102,22 +121,69 @@ input[type="submit"] {
 
 
 .page-header {
+    margin:(@space*2) 0;
+    .logo {
+        width:300px;
+        height:106px;
+        display:block;
+        margin:@space auto;
+    }
     @media (max-width:@break-small) { }
     @media (max-width:@break-medium) { }
     @media (max-width:@break-large) { }
 }
 
-.logo {
-    width:300px;
-    height:106px;
-    display:block;
-    margin:10px auto;
-}
 
 //----------------------------------------------------------------------------//
 //  Content
 //----------------------------------------------------------------------------//
 
+.section {
+    padding:@space 0;
+}
+
+.case-study {
+    padding:(@space*4) 0 (@space*3);
+    +.case-study {
+        border-top:1px solid @color-highlight;
+    }
+}
+
+//----------------------------------------------------------------------------//
+//  Slick Carousel
+//----------------------------------------------------------------------------//
+
+
+// Overwrite Slick rescource locations
+@font-face {
+    font-family:"slick";
+    src: url("/js/bower/slick-carousel/slick/fonts/slick.eot");
+    src: url("/js/bower/slick-carousel/slick/fonts/slick.eot?#iefix") format("embedded-opentype"),
+         url("/js/bower/slick-carousel/slick/fonts/slick.woff") format("woff"),
+         url("/js/bower/slick-carousel/slick/fonts/slick.ttf") format("truetype"),
+         url("/js/bower/slick-carousel/slick/fonts/slick.svg#slick") format("svg");
+    font-weight:normal;
+    font-style:normal;
+}
+.slick-loading .slick-list { background: white url(/js/bower/slick-carousel/slick/ajax-loader.gif) center center no-repeat; }
+
+// Allow space for pagination
+.slick-slider { margin-bottom: 60px; }
+// Pagination dots
+.slick-dots li {
+    button {
+        &::before {
+            font-size:18px;
+            transition:opacity 0.2s;
+        }
+        &:hover::before { opacity:0.5; }
+    }
+    &.slick-active button:hover::before { opacity:0.75; }
+}
+.slick-slide img {
+    max-width:100%;
+    height:auto;
+}
 
 
 //----------------------------------------------------------------------------//
