@@ -65,8 +65,6 @@ module.exports = function (grunt) {
             dist: {
                 src: [
                     "js/bower/jquery/dist/jquery.js",
-                    "js/bower/modernizr/modernizr.js",
-                    "js/bower/jquery-smartresize/jquery.debouncedresize.js",
                     "js/bower/Snap.svg/dist/snap.svg.js",
                     "js/bower/slick-carousel/slick/slick.js",
                     "js/project.js"
