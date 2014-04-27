@@ -7,7 +7,10 @@
             this.bindUIActions();
             $(".slides").slick({
                 slide: "li",
-                dots: true
+                dots: true,
+                cssEase: "cubic-bezier(.72,.06,.35,.96)",
+                lazyLoad: "progressive",
+                speed: 600
             });
         },
 
@@ -17,10 +20,6 @@
 
         windowLoaded: function () {
             this.drawLogo();
-        },
-
-        windowResized: function () {
-            console.log("Resized");
         },
 
         windowScrolled: function () {
@@ -45,31 +44,22 @@
 
             var s = new Snap("#logo");
 
-            var logo1 = s.path(logo1FlatPath);
-            logo1.attr({
+            var logoattrs = {
                 fill: "none",
                 stroke: "#666",
-                strokeWidth: 3
-            });
+                strokeWidth: 3,
+                strokeLinejoin: "round",
+                strokeLinecap: "round"
+            };
 
-            var logo2 = s.path(logo2FlatPath);
-            logo2.attr({
-                fill: "none",
-                stroke: "#666",
-                strokeWidth: 3
-            });
+            var logo1 = s.path(logo1Path);
+            logo1.attr(logoattrs);
 
-            var logo3 = s.path(logo3FlatPath);
-            logo3.attr({
-                fill: "none",
-                stroke: "#666",
-                strokeWidth: 3
-            });
+            var logo2 = s.path(logo2Path);
+            logo2.attr(logoattrs);
 
-
-            logo1.animate({d: logo1Path}, 400, mina.easeout);
-            logo2.animate({d: logo2Path}, 400, mina.easeout);
-            logo3.animate({d: logo3Path}, 400, mina.easeout);
+            var logo3 = s.path(logo3Path);
+            logo3.attr(logoattrs);
 
             $(".logo-wrap").hover(function () {
                 logo1.animate({ d: logo1FlatPath, strokeWidth: 1 }, 200, mina.easeout);
@@ -88,8 +78,6 @@
     $(function () { portfolio.init(); });
     // Images Loaded
     $(window).load(function () { portfolio.windowLoaded(); });
-    // Window Resized (smart debounced event)
-    $(window).bind("debouncedresize", function () { portfolio.windowResized(); });
     // Window Scrolled
     $(window).on("scroll", function () { portfolio.windowScrolled(); });
 
