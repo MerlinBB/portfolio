@@ -6,5 +6,8 @@
     "jquery-smartresize": "latest",
     "modernizr": "~2.7.1"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "Snap.svg": "~0.2.0"
+  }
 }

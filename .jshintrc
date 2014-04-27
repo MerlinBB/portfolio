@@ -13,6 +13,8 @@
         "jQuery": true,
         "console": true,
         "alert": true,
+        "Snap": true,
+        "mina": true,
         "module": true,
         "require": true,
         "Modernizr": true
