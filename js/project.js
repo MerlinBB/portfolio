@@ -33,21 +33,52 @@
         },
 
         drawLogo: function () {
-            var logoPath = "M100,103 l 0,-100, l 50,50, l 50,-50, l 0,100";
-            var logoFlatPath = "M50,53 l 50,0, l 50,0, l 50,0, l 50,0";
+            var logoPath = "l 0,-100, l 50,50, l 50,-50, l 0,100";
+            var logoFlatPath = "l 50,0, l 50,0, l 50,0, l 50,0";
+
+            var logo1Path =     "M90,103 " + logoPath;
+            var logo1FlatPath = "M50,53 " + logoFlatPath;
+            var logo2Path =     "M100,103 " + logoPath;
+            var logo2FlatPath = "M50,53 " + logoFlatPath;
+            var logo3Path =     "M110,103 " + logoPath;
+            var logo3FlatPath = "M50,53 " + logoFlatPath;
+
             var s = new Snap("#logo");
-            var logo = s.path(logoFlatPath);
-            logo.attr({
+
+            var logo1 = s.path(logo1FlatPath);
+            logo1.attr({
                 fill: "none",
                 stroke: "#666",
                 strokeWidth: 3
             });
-            logo.animate({d: logoPath}, 600, mina.easeout);
 
-            $(".page-header").hover(function () {
-                logo.animate({d: logoFlatPath}, 200, mina.easeout);
+            var logo2 = s.path(logo2FlatPath);
+            logo2.attr({
+                fill: "none",
+                stroke: "#666",
+                strokeWidth: 3
+            });
+
+            var logo3 = s.path(logo3FlatPath);
+            logo3.attr({
+                fill: "none",
+                stroke: "#666",
+                strokeWidth: 3
+            });
+
+
+            logo1.animate({d: logo1Path}, 400, mina.easeout);
+            logo2.animate({d: logo2Path}, 400, mina.easeout);
+            logo3.animate({d: logo3Path}, 400, mina.easeout);
+
+            $(".logo-wrap").hover(function () {
+                logo1.animate({ d: logo1FlatPath, strokeWidth: 1 }, 200, mina.easeout);
+                logo2.animate({ d: logo2FlatPath, strokeWidth: 1 }, 200, mina.easeout);
+                logo3.animate({ d: logo3FlatPath, strokeWidth: 1 }, 200, mina.easeout);
             }, function () {
-                logo.animate({d: logoPath}, 200, mina.easeout);
+                logo1.animate({ d: logo1Path, strokeWidth: 3 }, 200, mina.easeout);
+                logo2.animate({ d: logo2Path, strokeWidth: 3 }, 200, mina.easeout);
+                logo3.animate({ d: logo3Path, strokeWidth: 3 }, 200, mina.easeout);
             });
         }
 
