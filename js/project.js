@@ -11,7 +11,7 @@
                 dots: true,
                 cssEase: "cubic-bezier(.72,.06,.35,.96)",
                 lazyLoad: "progressive",
-                speed: 600
+                speed: Modernizr.touch ? 200 : 600
             });
         },
 
