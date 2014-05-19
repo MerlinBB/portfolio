@@ -36,10 +36,28 @@
 // Scaffolding
 //----------------------------------------------------------------------------//
 
-@space:                     18px;
-@break-small:               728px;
-@break-medium:              960px;
-@break-large:               1200px;
+@space:                        18px;
+
+@screen-sm-min:                768px;
+@screen-md-min:                992px;
+@screen-lg-min:                1200px;
+
+@container-sm:                 ((720px + @grid-gutter-width));
+@container-md:                 ((940px + @grid-gutter-width));
+@container-lg:                 ((1140px + @grid-gutter-width));
+
+@grid-columns:                 12;
+@grid-gutter-width:            30px;
+
+@grid-float-breakpoint:        @screen-sm-min;
+@grid-float-breakpoint-max:    (@grid-float-breakpoint - 1);
+
+.container {
+    .container-fixed();
+    @media (min-width: @screen-sm-min) { width: @container-sm; }
+    @media (min-width: @screen-md-min) { width: @container-md; }
+    @media (min-width: @screen-lg-min) { width: @container-lg; }
+}
 
 
 //----------------------------------------------------------------------------//
@@ -47,11 +65,11 @@
 //----------------------------------------------------------------------------//
 
 @font-family-heading:       "omnes-pro", sans-serif;
-@font-family-body:          sans-serif;
+@font-family-body:          "omnes-pro", sans-serif;
 @font-family-serif:         Georgia, "Times New Roman", Times, serif;
 @font-family-monospace:     Monaco, Menlo, Consolas, "Courier New", monospace;
 
-@font-size-base:            14px;
+@font-size-base:            22px;
 @font-size-large:           (@font-size-base * 1.25);
 @font-size-small:           (@font-size-base * 0.85);
 @font-size-mini:            (@font-size-base * 0.75);

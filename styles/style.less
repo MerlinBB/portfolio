@@ -27,6 +27,16 @@
     text-shadow:none;
 }
 
+* { box-sizing:border-box; }
+.row { .make-row(); }
+.make-grid-columns();
+.make-grid(xs);
+@media (min-width: @screen-sm-min) { .make-grid(sm); }
+//@media (min-width: @screen-md-min) { .make-grid(md); }
+//@media (min-width: @screen-lg-min) { .make-grid(lg); }
+
+body { background:#f0f0f0; }
+
 
 //----------------------------------------------------------------------------//
 //  Typography
@@ -132,9 +142,9 @@ input[type="submit"] {
         height:106px;
         display:block;
     }
-    @media (max-width:@break-small) { }
-    @media (max-width:@break-medium) { }
-    @media (max-width:@break-large) { }
+    @media (min-width: @screen-sm-min) { }
+    @media (min-width: @screen-md-min) { }
+    @media (min-width: @screen-lg-min) { }
 }
 
 
@@ -145,15 +155,15 @@ input[type="submit"] {
 .section {
     padding:@space 0;
     p {
-        max-width:60%;
+        max-width:100%;
         margin-left:auto;
         margin-right:auto;
     }
-    @media (max-width:@break-medium) {
-        p { max-width:80%; }
+    @media (min-width:@screen-md-min) {
+        p { max-width:60%; }
     }
-    @media (max-width:@break-small) {
-        p { max-width:100%; }
+    @media (min-width:@screen-sm-min) {
+        p { max-width:80%; }
     }
 }
 
@@ -174,7 +184,7 @@ input[type="submit"] {
 //----------------------------------------------------------------------------//
 
 
-// Overwrite Slick rescource locations
+// Overwrite Slick resource locations
 @font-face {
     font-family:"slick";
     src: url("js/bower/slick-carousel/slick/fonts/slick.eot");
@@ -208,6 +218,7 @@ input[type="submit"] {
 .slick-next, .slick-prev {
     width:auto;
     height:auto;
+    display:none!important;
     &::before {
         color:#666;
         font-size:25px;
@@ -217,7 +228,7 @@ input[type="submit"] {
     &:hover::before {
         opacity:0.8;
     }
-    @media (max-width:@break-small) { display:none!important; }
+    @media (min-width:@screen-sm-min) { display:block!important; }
 }
 .slick-prev { left:-30px; }
 .slick-next { right:-30px; }
@@ -230,7 +241,7 @@ input[type="submit"] {
 
 
 .page-footer {
-    @media (max-width:@break-small) { }
-    @media (max-width:@break-medium) { }
-    @media (max-width:@break-large) { }
+    @media (min-width: @screen-sm-min) { }
+    @media (min-width: @screen-md-min) { }
+    @media (min-width: @screen-lg-min) { }
 }
