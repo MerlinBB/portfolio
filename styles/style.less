@@ -13,6 +13,7 @@
 @import "reset.less";
 @import "vars.less";
 @import "helpers.less";
+@import "fonts.less";
 @import "grid.less";
 @import (less) "/js/bower/slick-carousel/slick/slick.css";
 
@@ -142,6 +143,23 @@ input[type="submit"] {
         height:106px;
         display:block;
     }
+    .social {
+        a {
+            padding:@space;
+            background:#ccc;
+            color:#666;
+            border-radius:50%;
+            transition:0.2s ease-in;
+            &.icon-twitter-1:hover {
+                background:#55acee;
+                color:#fff;
+            }
+            &.icon-github:hover {
+                background:#111;
+                color:#eee;
+            }
+        }
+    }
     @media (min-width: @screen-sm-min) { }
     @media (min-width: @screen-md-min) { }
     @media (min-width: @screen-lg-min) { }
@@ -169,9 +187,6 @@ input[type="submit"] {
 
 .case-study {
     padding:(@space*4) 0 (@space*3);
-    +.case-study {
-        border-top:1px solid @color-highlight;
-    }
     .dates {
         display:block;
         font-size:18px;
@@ -184,17 +199,7 @@ input[type="submit"] {
 //----------------------------------------------------------------------------//
 
 
-// Overwrite Slick resource locations
-@font-face {
-    font-family:"slick";
-    src: url("js/bower/slick-carousel/slick/fonts/slick.eot");
-    src: url("js/bower/slick-carousel/slick/fonts/slick.eot?#iefix") format("embedded-opentype"),
-         url("js/bower/slick-carousel/slick/fonts/slick.woff") format("woff"),
-         url("js/bower/slick-carousel/slick/fonts/slick.ttf") format("truetype"),
-         url("js/bower/slick-carousel/slick/fonts/slick.svg#slick") format("svg");
-    font-weight:normal;
-    font-style:normal;
-}
+// Overwrite Slick resource location
 .slick-loading .slick-list { background: white url(js/bower/slick-carousel/slick/ajax-loader.gif) center center no-repeat; }
 
 // Allow space for pagination
@@ -203,8 +208,10 @@ input[type="submit"] {
 .slick-dots li {
     button {
         &::before {
-            font-size:18px;
-            transition:opacity 0.2s;
+            font-family:"merlin-portfolio";
+            content:"\e801";
+            font-size:26px;
+            transition:opacity 0.6s ease-in;
         }
         &:hover::before { opacity:0.5; }
     }
@@ -220,8 +227,10 @@ input[type="submit"] {
     height:auto;
     display:none!important;
     &::before {
+        font-family:"merlin-portfolio";
+        content:"\e807";
         color:#666;
-        font-size:25px;
+        font-size:34px;
         transition:opacity 0.2s;
         opacity:0.6;
     }
@@ -231,7 +240,12 @@ input[type="submit"] {
     @media (min-width:@screen-sm-min) { display:block!important; }
 }
 .slick-prev { left:-30px; }
-.slick-next { right:-30px; }
+.slick-next {
+    right:-30px;
+    &::before {
+        content:"\e808";
+    }
+}
 
 
 
