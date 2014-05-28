@@ -96,8 +96,9 @@ module.exports = function (grunt) {
                 src: [
                     "js/modernizr-custom.js",
                     "js/bower/jquery/dist/jquery.js",
+                    "js/bower/jquery.easing/js/jquery.easing.js",
                     "js/bower/Snap.svg/dist/snap.svg.js",
-                    "js/bower/slick-carousel/slick/slick.js",
+                    "js/bower/flexslider/jquery.flexslider.js",
                     "js/project.js"
                 ],
                 dest: "js/production.js"
