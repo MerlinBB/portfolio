@@ -75,7 +75,7 @@ module.exports = function (grunt) {
                     "printshiv" : false,
                     "load" : false,
                     "mq" : false,
-                    "cssclasses" : false
+                    "cssclasses" : true
                 },
 
                 // By default, source is uglified before saving
