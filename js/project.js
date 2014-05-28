@@ -3,6 +3,11 @@
 
     var portfolio = {
 
+        logoPath: "l 0,-100, l 50,50, l 50,-50, l 0,100",
+        logoFlatPath: "M50,53 l 50,0, l 50,0, l 50,0, l 50,0",
+        m1Path: "M95,103 l 0,-100, l 50,50, l 50,-50, l 0,100",
+        m2Path: "M105,103 l 0,-100, l 50,50, l 50,-50, l 0,100",
+
         init: function () {
             this.drawLogo();
             this.bindUIActions();
@@ -16,28 +21,21 @@
         },
 
         bindUIActions: function () {
-            $(".btn").on("click", function (e) { portfolio.sayHello(e); });
-        },
-
-        windowLoaded: function () {
-            //
+            $(".logo-wrap").on({
+                mouseenter: function () { portfolio.flattenLogo(); },
+                mouseleave: function () { portfolio.errectLogo(); }
+            });
         },
 
         windowScrolled: function () {
-            console.log("Scrolled");
-        },
-
-        sayHello: function (e) {
-            var button = $(e.currentTarget);
-            alert("Hello from " + button);
+            if ($(window).scrollTop() > 10) {
+                portfolio.flattenLogo();
+            } else {
+                portfolio.errectLogo();
+            }
         },
 
         drawLogo: function () {
-            var logoPath = "l 0,-100, l 50,50, l 50,-50, l 0,100";
-            var logoFlatPath = "M50,53 l 50,0, l 50,0, l 50,0, l 50,0";
-
-            var m1Path = "M95,103 " + logoPath;
-            var m2Path = "M105,103 " + logoPath;
 
             var s = new Snap("#logo");
 
@@ -49,27 +47,26 @@
                 strokeLinecap: "round"
             };
 
-            var m1 = s.path(m1Path);
-            m1.attr(logoSettings);
+            portfolio.m1 = s.path(portfolio.m1Path);
+            portfolio.m1.attr(logoSettings);
 
-            var m2 = s.path(m2Path);
-            m2.attr(logoSettings);
+            portfolio.m2 = s.path(portfolio.m2Path);
+            portfolio.m2.attr(logoSettings);
+        },
 
-            $(".logo-wrap").hover(function () {
-                m1.animate({ d: logoFlatPath, strokeWidth: 1 }, 200, mina.easeout);
-                m2.animate({ d: logoFlatPath, strokeWidth: 1 }, 200, mina.easeout);
-            }, function () {
-                m1.animate({ d: m1Path, strokeWidth: 3 }, 200, mina.easeout);
-                m2.animate({ d: m2Path, strokeWidth: 3 }, 200, mina.easeout);
-            });
+        flattenLogo: function () {
+            portfolio.m1.animate({ d: portfolio.logoFlatPath }, 200);
+            portfolio.m2.animate({ d: portfolio.logoFlatPath }, 200);
+        },
+
+        errectLogo: function () {
+            portfolio.m1.animate({ d: portfolio.m1Path }, 200);
+            portfolio.m2.animate({ d: portfolio.m2Path }, 200);
         }
-
     };
 
     // DOM Ready
     $(function () { portfolio.init(); });
-    // Images Loaded
-    $(window).load(function () { portfolio.windowLoaded(); });
     // Window Scrolled
     $(window).on("scroll", function () { portfolio.windowScrolled(); });
 
