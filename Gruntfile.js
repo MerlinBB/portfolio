@@ -97,6 +97,7 @@ module.exports = function (grunt) {
                     "js/modernizr-custom.js",
                     "js/bower/jquery/dist/jquery.js",
                     "js/bower/jquery.easing/js/jquery.easing.js",
+                    "js/bower/jquery-smartresize/jquery.debouncedresize.js",
                     "js/bower/Snap.svg/dist/snap.svg.js",
                     "js/bower/flexslider/jquery.flexslider.js",
                     "js/project.js"

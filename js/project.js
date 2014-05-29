@@ -29,6 +29,13 @@
             }
         },
 
+        windowResized: function () {
+            $(".paginator").each(function () {
+                var pos = $(this).parent().find(".flex-active").parent().position();
+                $(this).css({ "left" : pos.left + "px", "top" : pos.top + "px" });
+            });
+        },
+
         drawLogo: function () {
 
             var s = new Snap("#logo");
@@ -86,5 +93,7 @@
     $(function () { portfolio.init(); });
     // Window Scrolled
     $(window).on("scroll", function () { portfolio.windowScrolled(); });
+    // Window Resized (smart debounced event)
+    $(window).bind("debouncedresize", function () { portfolio.windowResized(); });
 
 } (jQuery));
