@@ -69,14 +69,14 @@
                 start: function (slider) {
                     var pos = $(slider).find(".flex-control-paging li:first-child").position();
                     if (pos) {
-                        var paginator = $("<li class=paginator></li>").css({ "left" : pos.left + "px" });
+                        var paginator = $("<li class=paginator></li>").css({ "left" : pos.left + "px", "top" : pos.top + "px" });
                         $(slider).find(".flex-control-paging").append(paginator);
                     }
                 },
                 before: function (slider) {
                     var target = slider.animatingTo + 1; // 1 needed to convert zero indexed array into nth-child
                     var pos = $(slider).find(".flex-control-paging li:nth-child(" + target + ")").position();
-                    $(slider).find(".paginator").css({ "left" : pos.left + "px" });
+                    $(slider).find(".paginator").css({ "left" : pos.left + "px", "top" : pos.top + "px" });
                 }
             });
         }
