@@ -15,6 +15,7 @@
         },
 
         bindUIActions: function () {
+            $("a[href^=#]").on("click", function (e) { portfolio.scrollToSection(e); });
             if (!Modernizr.touch) {
                 $(".logo-wrap").on({
                     mouseenter: function () { portfolio.flattenLogo(); },
@@ -90,6 +91,15 @@
                     $(slider).find(".paginator").css({ "left" : pos.left + "px", "top" : pos.top + "px" });
                 }
             });
+        },
+
+        scrollToSection: function (e) {
+            e.preventDefault();
+
+            var destination = (e.currentTarget.hash);
+            var offset = $(destination)[0].offsetTop - 18; // minus our spacing unit
+
+            $("html, body").animate({ scrollTop: offset }, 600, "easeInOutCubic");
         }
     };
 
