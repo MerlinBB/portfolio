@@ -162,6 +162,8 @@ input[type="submit"] {
 
 .section {
     padding:@space 0;
+    &.case-studies { padding:0; } // allow individual case studies to give padding
+    &.contact { padding-bottom:280px; } // allow section to scroll to top of viewport
     p {
         max-width:100%;
         margin-left:auto;
@@ -184,6 +186,45 @@ input[type="submit"] {
     }
 }
 
+.social {
+    text-align:center;
+    a {
+        display:inline-block;
+        margin:(@space*2) (@space/2);
+        padding:@space;
+        background:#ccc;
+        color:#666;
+        border-radius:50%;
+        border:none;
+        transition:all 0.2s ease-in;
+        box-shadow:0 0 0 rgba(0,0,0,0), inset 0 0 0 rgba(0,0,0,0);
+        &:hover {
+            transform:translate(0, -3px);
+            box-shadow:0 2px 2px rgba(0,0,0,0.3), inset 0 0 0 rgba(0,0,0,0);
+        }
+        &:active {
+            transform:translate(0, 1px);
+            box-shadow:0 0 0 rgba(0,0,0,0), inset 0 2px 2px rgba(0,0,0,0.3);
+        }
+        &.icon-mail:hover {
+            background:#f0eee1;
+            color:#e35044;
+        }
+        &.icon-twitter-1:hover {
+            background:#55acee;
+            color:#fff;
+        }
+        &.icon-linkedin:hover {
+            background:#287bbc;
+            color:#fff;
+        }
+        &.icon-github:hover {
+            background:#111;
+            color:#eee;
+        }
+    }
+}
+
 
 //----------------------------------------------------------------------------//
 //  Footer
@@ -192,39 +233,6 @@ input[type="submit"] {
 
 .page-footer {
     text-align:center;
-    .social {
-        a {
-            display:inline-block;
-            margin:0 (@space/2) (@space*2);
-            padding:@space;
-            background:#ccc;
-            color:#666;
-            border-radius:50%;
-            border:none;
-            transition:all 0.2s ease-in;
-            box-shadow:0 0 0 rgba(0,0,0,0), inset 0 0 0 rgba(0,0,0,0);
-            &:hover {
-                transform:translate(0, -3px);
-                box-shadow:0 2px 2px rgba(0,0,0,0.3), inset 0 0 0 rgba(0,0,0,0);
-            }
-            &:active {
-                transform:translate(0, 1px);
-                box-shadow:0 0 0 rgba(0,0,0,0), inset 0 2px 2px rgba(0,0,0,0.3);
-            }
-            &.icon-twitter-1:hover {
-                background:#55acee;
-                color:#fff;
-            }
-            &.icon-linkedin:hover {
-                background:#287bbc;
-                color:#fff;
-            }
-            &.icon-github:hover {
-                background:#111;
-                color:#eee;
-            }
-        }
-    }
     @media (min-width: @screen-sm-min) { }
     @media (min-width: @screen-md-min) { }
     @media (min-width: @screen-lg-min) { }
