@@ -48,25 +48,29 @@
 .loading .flex-viewport { max-height:300px; }
 
 /* Direction Nav */
-.flex-direction-nav a  {
-    display:block;
-    .size(40px, 40px);
-    margin: -20px 0 0;
-    position:absolute;
-    top:50%;
-    z-index:10;
-    cursor:pointer;
-    transition:opacity .2s;
-    &.flex-next,
-    &.flex-prev {
-        &::before {
-            font-size:26px;
-            font-family:"merlin-portfolio";
-            content:"\e807";
+.flex-direction-nav {
+    a,
+    a:link,
+    a:visited {
+        .size(40px, 40px);
+        border:none;
+        margin: -20px 0 0;
+        position:absolute;
+        top:50%;
+        z-index:10;
+        cursor:pointer;
+        transition:opacity .2s;
+        &.flex-next,
+        &.flex-prev {
+            &::before {
+                font-size:26px;
+                font-family:"merlin-portfolio";
+                content:"\e807";
+            }
         }
-    }
-    &.flex-next::before {
-        content:"\e808";
+        &.flex-next::before {
+            content:"\e808";
+        }
     }
 }
 .flex-direction-nav .flex-prev,
