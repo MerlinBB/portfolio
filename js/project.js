@@ -11,7 +11,7 @@
         init: function () {
             this.drawLogo();
             this.bindUIActions();
-            portfolio.initSlider();
+            this.initSlider();
         },
 
         bindUIActions: function () {
