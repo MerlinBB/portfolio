@@ -15,17 +15,21 @@
         },
 
         bindUIActions: function () {
-            $(".logo-wrap").on({
-                mouseenter: function () { portfolio.flattenLogo(); },
-                mouseleave: function () { portfolio.errectLogo(); }
-            });
+            if (!Modernizr.touch) {
+                $(".logo-wrap").on({
+                    mouseenter: function () { portfolio.flattenLogo(); },
+                    mouseleave: function () { portfolio.errectLogo(); }
+                });
+            }
         },
 
         windowScrolled: function () {
-            if ($(window).scrollTop() > 10) {
-                portfolio.flattenLogo();
-            } else {
-                portfolio.errectLogo();
+            if (Modernizr.touch) {
+                if ($(window).scrollTop() > 10) {
+                    portfolio.flattenLogo();
+                } else {
+                    portfolio.errectLogo();
+                }
             }
         },
 
