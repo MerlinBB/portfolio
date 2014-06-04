@@ -119,7 +119,7 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: "img/",
-                    src: ["*.{png,jpg,gif}"],
+                    src: ["*.{png,jpg,gif}", "favicons/*.{png,jpg,gif}"],
                     dest: "img/"
                 }]
             }
