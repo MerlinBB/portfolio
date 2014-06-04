@@ -16,7 +16,7 @@
 
         bindUIActions: function () {
             $("a[href^=#]").on("click", function (e) { portfolio.scrollToSection(e); });
-            if (!Modernizr.touch) {
+            if (!Modernizr.touch && Modernizr.svg) {
                 $(".logo-wrap").on({
                     mouseenter: function () { portfolio.flattenLogo(); },
                     mouseleave: function () { portfolio.errectLogo(); }
@@ -25,7 +25,7 @@
         },
 
         windowScrolled: function () {
-            if (Modernizr.touch) {
+            if (Modernizr.touch && Modernizr.svg) {
                 if ($(window).scrollTop() > 10) {
                     portfolio.flattenLogo();
                 } else {
@@ -42,22 +42,27 @@
         },
 
         drawLogo: function () {
+            var logoWrap = $(".logo-wrap");
 
-            var s = new Snap("#logo");
+            if (Modernizr.svg) {
+                logoWrap.find(".fallback-logo").remove();
+                logoWrap.append("<svg id=\"logo\" class=\"logo\"></svg>");
+                var s = new Snap("#logo");
 
-            var logoSettings = {
-                fill: "none",
-                stroke: "#666",
-                strokeWidth: 3,
-                strokeLinejoin: "round",
-                strokeLinecap: "round"
-            };
+                var logoSettings = {
+                    fill: "none",
+                    stroke: "#666",
+                    strokeWidth: 3,
+                    strokeLinejoin: "round",
+                    strokeLinecap: "round"
+                };
 
-            portfolio.m1 = s.path(portfolio.m1Path);
-            portfolio.m1.attr(logoSettings);
+                portfolio.m1 = s.path(portfolio.m1Path);
+                portfolio.m1.attr(logoSettings);
 
-            portfolio.m2 = s.path(portfolio.m2Path);
-            portfolio.m2.attr(logoSettings);
+                portfolio.m2 = s.path(portfolio.m2Path);
+                portfolio.m2.attr(logoSettings);
+            }
         },
 
         flattenLogo: function () {
