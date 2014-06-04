@@ -63,6 +63,8 @@
                 portfolio.m2 = s.path(portfolio.m2Path);
                 portfolio.m2.attr(logoSettings);
             }
+
+            $(logoWrap).fadeTo(400, 1);
         },
 
         flattenLogo: function () {
