@@ -125,6 +125,18 @@ module.exports = function (grunt) {
             }
         },
 
+        htmlmin: {
+            dist: {
+                options: {
+                    removeComments: true,
+                    collapseWhitespace: true
+                },
+                files: {
+                    "index.html": "index-dev.html"
+                }
+            }
+        },
+
         watch: {
             options: {
                 livereload: true
@@ -140,7 +152,11 @@ module.exports = function (grunt) {
             scripts: {
                 files: ["js/project.js", "Gruntfile.js"],
                 tasks: "buildjs"
-            }
+            },
+            html: {
+                files: ["index-dev.html"],
+                tasks: "buildhtml"
+            },
         },
 
         notify: {
@@ -167,6 +183,12 @@ module.exports = function (grunt) {
                     title: "Jurassic Park!",
                     message: "Image minify successful!"
                 }
+            },
+            html: {
+                options: {
+                    title: "Lynnnnnn!",
+                    message: "HTML minify successful!"
+                }
             }
         }
 
@@ -177,5 +199,6 @@ module.exports = function (grunt) {
     grunt.registerTask("buildcss", ["less", "autoprefixer", "csslint", "cssmin", "notify:less"]);
     grunt.registerTask("buildjs", ["jshint", "modernizr", "concat", "uglify", "notify:js"]);
     grunt.registerTask("buildimg", ["imagemin", "notify:img"]);
+    grunt.registerTask("buildhtml", ["htmlmin", "notify:html"]);
 
 };

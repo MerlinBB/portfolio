@@ -4,6 +4,7 @@
 npm-debug.log
 /js/production.js
 /js/modernizr-custom.js
+index.html
 *.css
 *.map
 dploy.yaml
