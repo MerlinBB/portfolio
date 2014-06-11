@@ -78,6 +78,13 @@
         },
 
         initSlider: function () {
+            // Lazy load images
+            $("[data-src]").each(function () {
+                var image = $(this).data("src");
+                $(this).attr("src", image);
+            });
+
+            // Start slider
             $(".flexslider").flexslider({
                 animation: "slide",
                 slideshow: false,
