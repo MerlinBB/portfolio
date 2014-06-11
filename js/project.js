@@ -45,7 +45,6 @@
             var logoWrap = $(".logo-wrap");
 
             if (Modernizr.svg) {
-                logoWrap.find(".fallback-logo").remove();
                 logoWrap.append("<svg id=\"logo\" class=\"logo\"></svg>");
                 var s = new Snap("#logo");
 

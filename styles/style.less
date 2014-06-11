@@ -153,14 +153,14 @@ input[type="submit"] {
         margin:@space auto;
         opacity:0;
         .force-hardware-acceleration();
+        .no-svg & {
+            height:106px;
+            background:url(img/logo.png) no-repeat center center;
+        }
     }
     .logo {
         height:106px;
         display:block;
-    }
-    .fallback-logo {
-        height:106px;
-        .center-block();
     }
     @media (min-width: @screen-sm-min) { }
     @media (min-width: @screen-md-min) { }
