@@ -114,14 +114,9 @@ module.exports = function (grunt) {
             }
         },
 
-        imagemin: {
-            dynamic: {
-                files: [{
-                    expand: true,
-                    cwd: "img/",
-                    src: ["*.{png,jpg,gif}", "favicons/*.{png,jpg,gif}"],
-                    dest: "img/"
-                }]
+        imageoptim: {
+            dist: {
+                src: ["img", "img"]
             }
         },
 
@@ -198,7 +193,7 @@ module.exports = function (grunt) {
     grunt.registerTask("default", []);
     grunt.registerTask("buildcss", ["less", "autoprefixer", "csslint", "cssmin", "notify:less"]);
     grunt.registerTask("buildjs", ["jshint", "modernizr", "concat", "uglify", "notify:js"]);
-    grunt.registerTask("buildimg", ["imagemin", "notify:img"]);
+    grunt.registerTask("buildimg", ["imageoptim", "notify:img"]);
     grunt.registerTask("buildhtml", ["htmlmin", "notify:html"]);
 
 };
