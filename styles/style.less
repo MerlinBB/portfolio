@@ -166,14 +166,11 @@ input[type="submit"] {
     margin:(@space*2) 0;
     .main-heading { margin:0; }
     .logo-wrap {
-        width:300px;
+        .size(300px, 106px);
         margin:@space auto;
         opacity:0;
         .force-hardware-acceleration();
-        .no-svg & {
-            height:106px;
-            background:url(img/logo.png) no-repeat center center;
-        }
+        .no-svg & { background:url(img/logo.png) no-repeat center center; }
     }
     .logo {
         height:106px;
