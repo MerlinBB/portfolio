@@ -46,9 +46,12 @@ body { background:#f0f0f0; }
 
 body {
     font-family:@font-family-body;
-    font-size:@font-size-base;
+    font-size:@font-size-mini;
     line-height:@line-height-base;
     color:@color-text;
+    @media (min-width: @screen-sm-min) {
+        font-size:@font-size-base;
+    }
 }
 
 p { margin-bottom:@space; }
@@ -58,21 +61,33 @@ p { margin-bottom:@space; }
     line-height:@line-height-base;
     font-weight:400;
     text-align:center;
-    margin-bottom:@space;
+    margin-bottom:(@space/2);
     transition:opacity 0.1s;
+    @media (min-width: @screen-sm-min) {
+        margin-bottom:@space;
+    }
 }
 .main-heading {
     &:extend(.heading);
-    font-size:48px;
+    font-size:40px;
+    @media (min-width: @screen-sm-min) {
+        font-size:48px;
+    }
 }
 .sub-heading {
     &:extend(.heading);
-    font-size:24px;
+    font-size:20px;
     text-transform:uppercase;
+    @media (min-width: @screen-sm-min) {
+        font-size:24px;
+    }
 }
 .meta-heading {
     &:extend(.heading);
-    font-size:24px;
+    font-size:20px;
+    @media (min-width: @screen-sm-min) {
+        font-size:24px;
+    }
 }
 .smallprint {
     font-size:@font-size-mini;
@@ -189,7 +204,12 @@ input[type="submit"] {
 .section {
     padding:@space 0;
     &.case-studies { padding:0; } // allow individual case studies to give padding
-    &.contact { padding-bottom:280px; } // allow section to scroll to top of viewport
+    &.contact {
+        padding-bottom:80px;
+        @media (min-width: @screen-sm-min) {
+            padding-bottom:280px; // allow section to scroll to top of viewport
+        }
+    }
     p {
         max-width:100%;
         margin-left:auto;
@@ -204,11 +224,14 @@ input[type="submit"] {
 }
 
 .case-study {
-    padding:(@space*4) 0 (@space*3);
+    padding:(@space*1) 0 (@space*1);
     .dates {
         display:block;
         font-size:18px;
         text-transform:uppercase;
+    }
+    @media (min-width: @screen-sm-min) {
+        padding:(@space*4) 0 (@space*3);
     }
 }
 
