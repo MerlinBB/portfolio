@@ -45,7 +45,7 @@
             var logoWrap = $(".logo-wrap");
 
             if (Modernizr.svg) {
-                logoWrap.append("<svg id=\"logo\" class=\"logo\"></svg>");
+                logoWrap.append("<svg id=\"logo\"></svg>");
                 var s = new Snap("#logo");
 
                 var logoSettings = {
