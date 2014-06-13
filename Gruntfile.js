@@ -184,6 +184,12 @@ module.exports = function (grunt) {
                     title: "Lynnnnnn!",
                     message: "HTML minify successful!"
                 }
+            },
+            build: {
+                options: {
+                    title: "Buck Rogers Toilet!",
+                    message: "Complete build successful!"
+                }
             }
         }
 
@@ -195,5 +201,6 @@ module.exports = function (grunt) {
     grunt.registerTask("buildjs", ["jshint", "modernizr", "concat", "uglify", "notify:js"]);
     grunt.registerTask("buildimg", ["imageoptim", "notify:img"]);
     grunt.registerTask("buildhtml", ["htmlmin", "notify:html"]);
+    grunt.registerTask("build", ["buildcss", "buildjs", "buildimg", "buildhtml", "notify:build"]);
 
 };
